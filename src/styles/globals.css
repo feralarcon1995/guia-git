@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Noto+Sans+KR:wght@500;700;900&display=swap');
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -15,39 +16,50 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-html{
+
+html {
   scroll-behavior: smooth;
+}
+
+:root {
+  --main-color: rgb(212, 97, 51);
 }
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom,
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
-      background-image: url('/bg.png');
-      background-size: cover;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.title {
+  font-size: 20rem;
+  letter-spacing: -40px;
+}
+
+p {
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .gradient {
-  background: rgb(212, 97, 51);
-  background: linear-gradient(45deg, rgba(212, 97, 51, 1) 45%, rgba(255, 196, 172, 1) 100%);
+  background: var(--main-color);
+  background: linear-gradient(45deg, rgba(212, 97, 51, 1) 45%, rgb(255, 72, 0) 100%);
 }
 
 .text-gradient {
-  background: rgb(212, 97, 51);
-  background: linear-gradient(45deg, rgba(212, 97, 51, 1) 45%, rgba(255, 196, 172, 1) 100%);
+  background: var(--main-color);
+  background: linear-gradient(45deg, rgba(212, 97, 51, 1) 45%, rgb(157, 54, 13) 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
 }
 
-.hr{
-  background: rgb(212, 97, 51);
-  background: linear-gradient(45deg, rgba(212, 97, 51, 1) 45%, rgb(0, 0, 0) 100%);
-  width:100px;
-  height:2px;
-  display: block;
-}
+
 .bounce {
   animation: bounce 3s infinite linear;
 }
@@ -93,6 +105,7 @@ body {
   display: flex;
   align-items: center;
 }
+
 .border-gradient {
   position: relative;
   padding: 2px;
@@ -101,33 +114,67 @@ body {
   overflow: hidden;
   box-shadow: rgba(93, 72, 50, 0.25) 0px 50px 100px -20px, rgba(39, 39, 39, 0.3) 0px 30px 60px -30px;
 }
-.shadow{
+
+.shadow {
   box-shadow: rgba(93, 72, 50, 0.25) 0px 50px 100px -20px, rgba(39, 39, 39, 0.3) 0px 30px 60px -30px;
 
 }
+
 .border-gradient::before {
   content: "";
   position: absolute;
-  top: -1px; right: -1px; bottom: -1px; left: -1px;
-  background: linear-gradient( rgba(212, 97, 51, 1) 45%, rgba(255, 196, 172, 1) 100%);
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  background: linear-gradient(rgba(212, 97, 51, 1) 45%, rgba(255, 196, 172, 1) 100%);
   z-index: 1;
   border-radius: 5px;
   margin: 1px;
 }
 
-.border-gradient > * {
+.link-hover {
+  text-decoration: none;
+  color: #fff;
+  width: max-content;
+  padding: 10px;
+  background-image:linear-gradient(45deg, rgba(212, 97, 51, 1) 45%, rgb(200, 68, 15) 100%);
+  background-repeat: no-repeat;
+  background-size: 30% 100%;
+  transition: .5s;
+  font-weight: bold;
+}
+.link-hover:hover{
+  background-size: 100% 100%;
+}
+.border-gradient>* {
   position: relative;
   z-index: 2;
 }
 
-
-.bg-bullet{
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.905)),url('/bullets.jpg');
+.bg-hero {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.636), rgb(0, 0, 0)), url('/hero.png');
   background-size: cover;
-  clip-path: polygon(100% 0, 100% 91%, 88% 100%, 0% 100%, 0 11%, 12% 0);
+  background-position: center;
+  z-index:0;
 }
 
-.bg-cat{
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.905)),url('/cat.jpg');
+.bg-bullet {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.905)), url('/bullets.jpg');
   background-size: cover;
+}
+
+
+@media screen and (max-width:800px) {
+  .title {
+    font-size: 10rem;
+    letter-spacing: -10px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .title {
+    font-size: 6rem;
+    letter-spacing: -5px;
+  }
 }

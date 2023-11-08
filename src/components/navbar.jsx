@@ -10,8 +10,8 @@ export default function Navbar({ allCommandData }) {
         setIsOpen(!isOpen);
     }
     return (
-        <nav className="p-5 flex justify-between items-center">
-            <Link href="/" className="flex font-medium items-center gap-4 hover:text-amber-600">
+        <nav className="p-16 z-40 flex justify-between items-center">
+            <Link href="/" className="flex font-medium text-xl items-center gap-4 hover:text-amber-600 z-40">
                 <Image
                     src="/git.png"
                     alt="logo de Git"
@@ -20,7 +20,7 @@ export default function Navbar({ allCommandData }) {
                 />
                 Inicio
             </Link>
-            <div className="relative group">
+            <div className="relative group z-40">
                 <button
                     className="hover:text-amber-600 flex items-center text-white  font-medium rounded-lg text-xl gap-4 py-2.5 pb-7 mr-2  focus:outline-none"
                     type="button"
@@ -30,10 +30,10 @@ export default function Navbar({ allCommandData }) {
                     </path></svg>
                 </button>
                 {/* Drawer component */}
-                {isOpen && <div className="fixed top-0 left-0 z-30 w-full h-full bg-[#191919] opacity-75" onClick={handleMenu} />}
+                {isOpen && <div className="fixed top-0 left-0 z-20 w-full h-full bg-[#191919] opacity-75" onClick={handleMenu} />}
                 <div
                     id="drawer-navigation"
-                    className={`fixed flex flex-col h-full justify-between items-center  gap-4 top-0 right-0 z-40  p-4 overflow-y-auto transition-transform ${isOpen ? "" : "translate-x-full"
+                    className={`fixed flex z-30 flex-col h-full justify-between items-center  gap-4 top-0 right-0 z-40  p-4 overflow-y-auto transition-transform ${isOpen ? "" : "translate-x-full"
                         } bg-white w-80 dark:bg-[#000]`}
                     tabIndex={-1}
                     aria-labelledby="drawer-navigation-label"
@@ -56,7 +56,7 @@ export default function Navbar({ allCommandData }) {
                         </svg>
                         <span className="sr-only">Close menu</span>
                     </button>
-                    <div className="py-4 overflow-y-auto">
+                    <div className="py-4 overflow-y-auto z-30">
                         <ul className="space-y-2 font-medium flex flex-col gap-4">
                             {Object.keys(allCommandData).map((category) => {
                                 const categoryInfo = allCommandData[category][0];
@@ -79,8 +79,6 @@ export default function Navbar({ allCommandData }) {
                             <svg class="w-6 h-6 text-amber-700 hover:text-amber-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                 <path fill="currentColor" d="M12.186 8.672 18.743.947h-2.927l-5.005 5.9-4.44-5.9H0l7.434 9.876-6.986 8.23h2.927l5.434-6.4 4.82 6.4H20L12.186 8.672Zm-2.267 2.671L8.544 9.515 3.2 2.42h2.2l4.312 5.719 1.375 1.828 5.731 7.613h-2.2l-4.699-6.237Z" />
                             </svg>
-
-
                         </a>
 
                         <a href="https://github.com/feralarcon1995" target="_blank">
