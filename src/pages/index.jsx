@@ -4,8 +4,6 @@ import Link from 'next/link'
 import Story from '@/components/story';
 import Hero from '@/components/hero';
 import Bullets from '@/components/bullets';
-import Navbar from '@/components/navbar';
-
 
 export async function getStaticProps() {
   const allCommandData = getAllCommands();
@@ -21,7 +19,6 @@ export default function Home({ allCommandData }) {
 
   return (
     <Layout>
-      <Navbar allCommandData={allCommandData} />
       <Hero />
       <Story />
       <Bullets />
@@ -35,7 +32,6 @@ export default function Home({ allCommandData }) {
           {Object.keys(allCommandData).map(category => {
             const categoryInfo = allCommandData[category][0];
             const { title, description } = categoryInfo;
-
             return (
               <li className="flex flex-col justify-between  shadow border p-3  gap-2 w-full md:w-9/12" key={category}>
                 <Link href={`/commands/${category}`} className='bg-hero flex flex-col gap-3text-xl p-4  font-bold text-white'>

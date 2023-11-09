@@ -164,17 +164,58 @@ p {
   background-size: cover;
 }
 
+.dash{
+  display: grid;
+  grid-template-columns: 250px calc(100% - 250px);
+  grid-template-rows: auto;
+  grid-template-areas: 'nav content';
+}
+
+.navegador{
+  grid-area:nav;
+}
+
+.content{
+  grid-area:content;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px; 
+}
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: #ff6600; 
+}
+.overflow-y-auto::-webkit-scrollbar-track {
+  background-color: #333; 
+}
+
+#drawer-navigation ul:last-child{
+border:none;
+}
 
 @media screen and (max-width:800px) {
   .title {
     font-size: 10rem;
     letter-spacing: -10px;
   }
+
+  .dash{
+    display: grid;
+    grid-template-columns: 150px calc(100% - 150px);
+    grid-template-rows: auto;
+    grid-template-areas: 'nav content';
+  }
+  
 }
 
 @media screen and (max-width:600px) {
   .title {
     font-size: 6rem;
     letter-spacing: -5px;
+  }
+
+  .dash{
+    display:flex;
+    flex-direction:column;
   }
 }

@@ -35,9 +35,10 @@ export default function Category({ commands, categoryInfo, allCommandData }) {
                 />
                 <title>{categoryInfo.title}</title>
             </Head>
-            <Navbar allCommandData={allCommandData} />
+            <main className=" dash">
+                <Navbar allCommandData={allCommandData} />
 
-            <section className="p-16 bg-hero mt-10 flex flex-col gap-5 min-h-screen max-h-full justify-between ">
+            <section className="content p-16 bg-hero mt-10 flex flex-col gap-5 min-h-screen max-h-full justify-between ">
                 <article class="flex justify-between items-center">
                     <div>
                         <h1 className="text-4xl md:text-6xl uppercase font-bold py-5 ">{categoryInfo.title}</h1>
@@ -66,6 +67,8 @@ export default function Category({ commands, categoryInfo, allCommandData }) {
                 </ul>
                 <Link href="/" className=" hover:text-amber-600 text-xl">← Volver atras</Link>
             </section>
+            </main>
+            
         </Layout>
     );
 }
