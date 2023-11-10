@@ -18,8 +18,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
     const allCommandData = getAllCommands();
     const commands = getAllCommands()[params.category];
-    const categoryInfo = commands[0]; 
-    return { props: { commands, categoryInfo,allCommandData } };
+    const categoryInfo = commands[0];
+    return { props: { commands, categoryInfo, allCommandData } };
 }
 
 export default function Category({ commands, categoryInfo, allCommandData }) {
@@ -38,37 +38,38 @@ export default function Category({ commands, categoryInfo, allCommandData }) {
             <main className=" dash">
                 <Navbar allCommandData={allCommandData} />
 
-            <section className="content p-16 bg-hero mt-10 flex flex-col gap-5 min-h-screen max-h-full justify-between ">
-                <article class="flex justify-between items-center">
-                    <div>
-                        <h1 className="text-4xl md:text-6xl uppercase font-bold py-5 ">{categoryInfo.title}</h1>
-                        <p className="text-2xl">{categoryInfo.description}</p>
+                <section className="content p-16 bg-hero mt-10 flex flex-col gap-5 min-h-screen max-h-full justify-between ">
+                    <article className="flex justify-between items-center">
+                        <div>
+                            <h1 className="text-4xl md:text-6xl uppercase font-bold py-5 ">{categoryInfo.title}</h1>
+                            <p className="text-2xl">{categoryInfo.description}</p>
 
-                    </div>
-                    <Image src="/git.png" width={200} height={200} alt="git logo" />
-                </article>
-                
-                <Image
-                    src="/pattern.png"
-                    alt="patrones circulares de color naranja"
-                    className="absolute opacity-50 bottom-[10px] left-0"
-                    width={200}
-                    height={200} />
-                <ul className="flex flex-col gap-4">
-                    {commands.slice(1).map(command => (
-                        <li key={command.id} className="text-2xl font-bold uppercase  hover:text-amber-600">
-                            <Link href={`/commands/${category}/${command.id}`}>
-                                {command.title}
-                            </Link>
-                            
-                        </li>
+                        </div>
+                        <Image src="/git.png" width={200} height={200} alt="git logo" />
+                    </article>
 
-                    ))}
-                </ul>
-                <Link href="/" className=" hover:text-amber-600 text-xl">← Volver atras</Link>
-            </section>
+                    <Image
+                        src="/pattern.png"
+                        alt="patrones circulares de color naranja"
+                        className="absolute opacity-50 bottom-[10px] left-0"
+                        width={200}
+                        height={200}
+                        priority />
+                    <ul className="flex flex-col gap-4">
+                        {commands.slice(1).map(command => (
+                            <li key={command.id} className="text-2xl font-bold uppercase  hover:text-amber-600">
+                                <Link href={`/commands/${category}/${command.id}`}>
+                                    {command.title}
+                                </Link>
+
+                            </li>
+
+                        ))}
+                    </ul>
+                    <Link href="/" className=" hover:text-amber-600 text-xl">← Volver atras</Link>
+                </section>
             </main>
-            
+
         </Layout>
     );
 }
