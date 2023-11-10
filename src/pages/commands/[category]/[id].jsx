@@ -14,14 +14,12 @@ export async function getStaticPaths() {
             paths.push({ params: { category, id: command.id } });
         }
     }
-    console.log(paths)
     return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
     const allCommandData = getAllCommands();
     const command = getCommandById(params.category, params.id);
-    console.log(command)
     return { props: { command, allCommandData } };
 }
 
