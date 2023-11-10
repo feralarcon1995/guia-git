@@ -2,64 +2,98 @@ export const commands = {
 
     configuration: [
         {
-            id: 'configuration-git',
-            title: 'Configuración de git',
-            description: 'Haremos la configuración del controlador de versiones en nuestra pc.'
+            "id": 'configuration-git',
+            "title": 'Configuración de git',
+            "description": 'Haremos la configuración del controlador de versiones en nuestra pc.'
         },
         {
-            id: 'git-config-user-name',
-            title: "Configurar el nombre de usuario global",
-            command: ` git config --global user.name "mi nombre" `,
-            description: `Configuramos el nombre de usuario global de Git. Este nombre se utiliza para identificar al autor de los commits en todos los repositorios de Git.
+            "id": 'git-config-user-name',
+            "title": "Configurar el nombre de usuario global",
+            "command": ` git config --global user.name "mi nombre" `,
+            "description": `Configuramos el nombre de usuario global de Git. Este nombre se utiliza para identificar al autor de los commits en todos los repositorios de Git.
             En este caso, el comando establece el nombre de usuario en 'mi nombre'. Esto significa que todos los commits que hagas en cualquier repositorio de Git se atribuirán a 'mi nombre'.`,
-            secondCommand: ` git config --get user.name 
+            "secondCommand": ` git config --get user.name 
             ` ,
-            secondDescription: 'Para ver el nombre de usuario global de Git, puedes usar el siguiente comando:',
-            output:
+            "secondDescription": 'Para ver el nombre de usuario global de Git, puedes usar el siguiente comando:',
+            "output":
                 `bash ➔ ~/Desktop/guia-git 
 Fernando Alarcon `,
-            outputDescription: 'Este comando devolverá el valor del nombre de usuario global de Git, que en este caso es "Fernando Alarcon".'
+            "outputDescription": 'Este comando devolverá el valor del nombre de usuario global de Git, que en este caso es "Fernando Alarcon".'
 
         },
         {
-            id: 'git-config-user-email',
-            title: "Configurar el email de usuario global",
-            command: 'git config --global user.email miemail@ejemplo.com',
-            description: `
+            "id": 'git-config-user-email',
+            "title": "Configurar el email de usuario global",
+            "command": 'git config --global user.email miemail@ejemplo.com',
+            "description": `
             El comando git config --global user.email miemail@ejemplo.com configura la dirección de correo electrónico global de Git. Esta dirección de correo electrónico se utiliza para identificar al autor de los commits en todos los repositorios
             
             En este caso, el comando establece la dirección de correo electrónico. Esto significa que todos los commits que hagas en cualquier repositorio de Git se atribuirán a miemail@ejemplo.com`,
-            secondCommand: 'git config --get user.email ',
-            secondDescription: 'Para ver el email de usuario global de Git, puedes usar el siguiente comando:',
-            output:
+            "secondCommand": 'git config --get user.email ',
+            "secondDescription": 'Para ver el email de usuario global de Git, puedes usar el siguiente comando:',
+            "output":
                 `bash ➔ ~/Desktop/guia-git 
 feralarcon1995@gmail.com`,
-            outputDescription: 'Este comando devolverá el valor del email de usuario global de Git, que en este caso es "feralarcon1995@gmail.com".'
+            "outputDescription": 'Este comando devolverá el valor del email de usuario global de Git, que en este caso es "feralarcon1995@gmail.com".'
 
         },
+        {
+            "id": 'git-config-color',
+            "title": 'Configurar la configuración de color',
+            "command": 'git config --global color.ui true',
+            "description": 'Habilita el uso de colores en la interfaz de línea de comandos de Git, mejorando la legibilidad de la salida.',
+            "secondDescription": 'Los colores son útiles para identificar rápidamente cambios, ramas y otros aspectos en la salida de los comandos de Git.'
+        },
+        {
+            "id": 'git-config-merge-tool',
+            "title": 'Configurar la herramienta de diferencias por defecto',
+            "command": 'git config --global merge.tool vscode',
+            "description": 'Establece la herramienta de diferencias que Git usará por defecto al resolver conflictos de fusión. En este caso, se configura para usar Visual Studio Code.',
+            "secondDescription": 'Cambiar "vscode" por el nombre del comando de la herramienta de diferencias que prefieras (por ejemplo, "code" para Visual Studio Code o "vimdiff" para VIM).'
+        },
+        {
+            "id": "git-config-editor",
+            "title": "Configurar el editor de texto por defecto",
+            "command": "git config --global core.editor \"code --wait\"",
+            "description": "Establece Visual Studio Code como el editor de texto por defecto para Git. La opción `--wait` permite que Git espere a que se cierre el editor antes de continuar.",
+            "secondDescription": "Puedes cambiar \"code\" por el nombre del ejecutable de tu editor preferido y ajustar cualquier opción adicional según tus preferencias.",
+            "outputDescription": "El editor de texto por defecto es el editor que Git usará para abrir archivos cuando te solicite realizar cambios. Es importante configurar un editor de texto que te resulte familiar y cómodo de usar.",
+
+        },
+        {
+            "id": 'git-commit-alias',
+            "title": 'Confirmar cambios con un alias',
+            "command": 'git config --global alias.cm "commit -m"',
+            "description": 'Crea un alias para el comando de commit con un mensaje. En este caso, el alias "cm" se asigna a "commit -m", permitiéndote confirmar cambios con un mensaje de manera más concisa.',
+            "secondCommand":
+                ` git config --global alias.cm "commit -m" `,
+            "outputDescription": 'Este alias te permite usar . Puedes personalizar el alias según tus preferencias.',
+            "output": `git cm \'mensaje del commit\' en lugar de git commit -m \'mensaje del commit\' `
+        }
+
 
     ],
     start: [
         {
-            id: 'start-with-git',
-            title: 'Comenzando con un proyecto',
-            description: 'Ya una vez configurado, creamos un proyecto básico y vemos cuales son los comandos básicos para trabajar con él.',
+            "id": 'start-with-git',
+            "title": 'Comenzando con un proyecto',
+            "description": 'Ya una vez configurado, creamos un proyecto básico y vemos cuales son los comandos básicos para trabajar con él.',
         },
         {
-            id: 'git-init',
-            title: 'Iniciamos git en nuestro proyecto',
-            command: 'git init',
-            description: `Con git init creamos un nuevo repositorio de Git. Este comando crea un directorio oculto llamado .git en el directorio actual. Este directorio contiene todos los datos de control de versiones del repositorio, como los archivos, los commits y el historial de cambios.`,
-            outputDescription: 'Una vez inicializado podemos visualizar en la terminal lo siguiente:',
-            output: 'Initialized empty Git repository in C:/Users/Desktop/guia-git/.git/'
+            "id": 'git-init',
+            "title": 'Iniciamos git en nuestro proyecto',
+            "command": 'git init',
+            "description": `Con git init creamos un nuevo repositorio de Git. Este comando crea un directorio oculto llamado .git en el directorio actual. Este directorio contiene todos los datos de control de versiones del repositorio, como los archivos, los commits y el historial de cambios.`,
+            "outputDescription": 'Una vez inicializado podemos visualizar en la terminal lo siguiente:',
+            "output": 'Initialized empty Git repository in C:/Users/Desktop/guia-git/.git/'
         },
         {
-            id: 'git-status',
-            title: 'Verificando el estado de nuestro proyecto',
-            command: 'git status',
-            description: `Con git status muestra el estado del directorio de trabajo y del staging area. Este comando te permite ver los cambios que se han realizado en los archivos, los archivos que no están siendo rastreados por Git y los archivos que han sido agregados al staging area pero aún no se han confirmado.`,
-            outputDescription: 'Cuando verificamos el status del proyecto, podemos notar dos salidas diferentes. Si no hay nada modificado, mostrará que no hay nada para commitear. Caso contrario, mostrará que archivos están a la espera de ser commiteados.',
-            output:
+            "id": 'git-status',
+            "title": 'Verificando el estado de nuestro proyecto',
+            "command": 'git status',
+            "description": `Con git status muestra el estado del directorio de trabajo y del staging area. Este comando te permite ver los cambios que se han realizado en los archivos, los archivos que no están siendo rastreados por Git y los archivos que han sido agregados al staging area pero aún no se han confirmado.`,
+            "outputDescription": 'Cuando verificamos el status del proyecto, podemos notar dos salidas diferentes. Si no hay nada modificado, mostrará que no hay nada para commitear. Caso contrario, mostrará que archivos están a la espera de ser commiteados.',
+            "output":
                 `
 Si no hay cambios en el repositorio:
 On branch master
@@ -193,24 +227,107 @@ git add .
             "output": "Unstaged changes after reset:\nM\tnombre_del_archivo"
         }
 
-
-
-
-
-
     ],
 
     branch: [
         {
-            id: 'work-with-branchs',
-            title: 'Trabajando con ramas',
-            description: 'Una vez que se conozcan los comandos básicos, podremos trabajar con las ramas. Veremos qué son, cómo se usan y sus ventajas.'
+            "id": 'work-with-branchs',
+            "title": 'Trabajando con ramas',
+            "description": 'Una vez que se conozcan los comandos básicos, podremos trabajar con las ramas. Veremos qué son, cómo se usan y sus ventajas.'
         },
         {
-            id: 'git-branch',
-            title: 'Identificar las ramas de nuestro proyecto',
-            command: 'git branch'
+            "id": "git-branch-list",
+            "title": "Listar todas las ramas en Git",
+            "command": "git branch",
+            "description": "Este comando muestra una lista de todas las ramas en tu repositorio Git. La rama actual estará resaltada y marcada con un asterisco.",
+            "tips": [
+                "Usa este comando para ver todas tus ramas y verificar en qué rama estás actualmente."
+            ]
+        },        
+        {
+            "id": "git-branch-create",
+            "title": "Crear una nueva rama en Git",
+            "command": "git branch nombre_de_la_rama",
+            "description": "Este comando crea una nueva rama en tu repositorio Git. Debes reemplazar 'nombre_de_la_rama' con el nombre que desees para tu rama. Este comando no te cambia a la nueva rama, simplemente la crea.",
+            "secondCommand": "git checkout -b nombre_de_la_rama",
+            "secondDescription": "Este es un comando conveniente que combina la creación de una rama y el cambio a ella en un solo paso. Al igual que antes, debes reemplazar 'nombre_de_la_rama' con el nombre que desees para tu rama. El parámetro -b en el comando git checkout -b nombre_de_la_rama es una opción que le dice a Git que cree una nueva rama y luego cambie a esa rama inmediatamente. Es una combinación de los comandos git branch nombre_de_la_rama y git checkout nombre_de_la_rama.  Entonces, si ejecutas git checkout -b nueva_rama, Git creará una rama llamada nueva_rama y luego te moverá a esa rama en un solo paso. Es una forma rápida y conveniente de crear y cambiar a una nueva rama al mismo tiempo. ",
+            "output": "Output en terminal: nombre_de_la_rama",
+            "outputDescription": "Cuando ejecutas el comando 'git branch', se muestra una lista de todas las ramas en tu repositorio. La rama en la que te encuentras actualmente estará resaltada y marcada con un asterisco.",
+            "tips": [
+                "Es una buena práctica nombrar las ramas de manera descriptiva según el trabajo que se vaya a realizar en ellas. Por ejemplo, si estás creando un nuevo componente de usuario, podrías nombrar tu rama 'componente-usuario'.",
+                "Recuerda que debes hacer 'commit' de tus cambios antes de cambiar a una nueva rama, para no perder tu trabajo. Por ejemplo, si estás en la rama 'master' y tienes cambios sin confirmar, debes hacer 'commit' de esos cambios antes de ejecutar 'git checkout -b componente-usuario'. De lo contrario, esos cambios se trasladarán a tu nueva rama."
+            ]
+        },
+        {
+            "id": "git-branch-delete",
+            "title": "Eliminar una rama en Git",
+            "command": "git branch -d nombre_de_la_rama",
+            "description": "Este comando elimina una rama de tu repositorio Git. Debes reemplazar 'nombre_de_la_rama' con el nombre de la rama que deseas eliminar. Este comando solo eliminará la rama si ya has fusionado sus cambios en otra rama.",
+            "secondCommand": "git branch -D nombre_de_la_rama",
+            "secondDescription": "Este comando forzará la eliminación de la rama, independientemente de si has fusionado sus cambios. Esto puede ser peligroso, así que asegúrate de que realmente quieres eliminar permanentemente la rama y todos sus cambios.",
+            "output": "Output en terminal: Deleted branch nombre_de_la_rama",
+            "outputDescription": "Cuando ejecutas el comando 'git branch -d', se muestra un mensaje indicando que la rama ha sido eliminada. Si la rama no se puede eliminar porque contiene cambios no fusionados, Git te lo hará saber.",
+            "tips": [
+                "git branch -d nombre_de_la_rama: El parámetro -d (delete) se utiliza para eliminar una rama. Sin embargo, este comando solo eliminará la rama si sus cambios han sido fusionados en otra rama. Si la rama tiene cambios que no se han fusionado, Git te advertirá y no permitirá la eliminación de la rama.",
+                "git branch -D nombre_de_la_rama: El parámetro -D es una versión forzada del comando anterior. Este comando eliminará la rama independientemente de si sus cambios han sido fusionados. Esto puede ser peligroso porque puedes perder cambios permanentemente, así que debes usarlo con precaución.",
+                "Es una buena práctica asegurarte de que has fusionado todos los cambios que deseas conservar antes de eliminar una rama.",
+                "Usa el comando 'git branch' para verificar qué ramas existen y el comando 'git checkout nombre_de_la_rama' para cambiar a una rama y revisar sus cambios antes de eliminarla.",
+
+            ]
+        },
+        {
+            "id": "git-merge",
+            "title": "Fusionar una rama en Git",
+            "command": "git merge nombre_de_la_rama",
+            "description": "Este comando fusiona los cambios de la rama especificada en la rama actual. Debes reemplazar 'nombre_de_la_rama' con el nombre de la rama que deseas fusionar.",
+            "tips": [
+                "Antes de fusionar, asegúrate de que estás en la rama a la que deseas fusionar los cambios. Puedes usar 'git checkout nombre_de_la_rama' para cambiar a la rama correcta.",
+                "Es posible que debas resolver conflictos de fusión si Git no puede fusionar automáticamente los cambios."
+            ]
+        },
+        {
+            "id": "git-branch-rename",
+            "title": "Renombrar una rama en Git",
+            "command": "git branch -m nombre_antiguo nombre_nuevo",
+            "description": "Este comando renombra una rama en tu repositorio Git. Debes reemplazar 'nombre_antiguo' con el nombre actual de la rama, y 'nombre_nuevo' con el nuevo nombre que deseas para la rama.",
+            "tips": [
+                "Asegúrate de que no estás en la rama que deseas renombrar antes de ejecutar este comando."
+            ]
+        },
+        {
+            "id": "git-branch-merged",
+            "title": "Verificar las ramas fusionadas y no fusionadas en Git ",
+            "command": "git branch --merged",
+            "description": "Este comando muestra todas las ramas que han sido fusionadas en la rama actual.",
+            "secondCommand":"git branch --no-merged",
+            "secondDescription":"Este comando muestra todas las ramas que tienen cambios que aún no se han fusionado en la rama actual.",
+            "tips": [
+                "git branch --merged es útil para saber qué ramas ya han sido fusionadas y podrían ser eliminadas.",
+                "git branch --no-merged es útil para saber qué ramas tienen cambios que aún necesitan ser revisados o fusionados."
+            ]
+        },
+        {
+            "id": "git-rebase",
+            "title": "Reorganizar los commits con Git Rebase",
+            "command": "git rebase nombre_de_la_rama_base",
+            "description": "El comando 'git rebase' se utiliza para mover o combinar una secuencia de commits a una nueva base de commit. Es muy útil cuando quieres mantener tu rama de trabajo actualizada con los últimos cambios de la rama principal (por lo general, 'master' o 'main'). Debes reemplazar 'nombre_de_la_rama_base' con el nombre de la rama que tiene los nuevos cambios que deseas incluir en tu rama de trabajo.",
+            "secondCommand": "git rebase -i HEAD~n",
+            "secondDescription": "El comando 'git rebase -i HEAD~n' se utiliza para reorganizar los últimos 'n' commits de manera interactiva. Puedes reemplazar 'n' con el número de commits que deseas reorganizar. Este comando abrirá un editor de texto donde puedes elegir qué hacer con cada commit: reordenarlos, editar el mensaje del commit, combinar commits, etc.",
+            "output": "Output en terminal: Successfully rebased and updated refs/heads/nombre_de_tu_rama.",
+            "outputDescription": "Cuando ejecutas el comando 'git rebase', se muestra un mensaje indicando que Git ha reorganizado los commits exitosamente. Si hay conflictos entre los commits, Git te lo hará saber y tendrás que resolverlos manualmente.",
+            "tips": [
+                "Antes de hacer 'rebase', es una buena práctica asegurarte de que has guardado tu trabajo actual. El rebase puede ser peligroso porque estás reescribiendo la historia del repositorio.",
+                "Si estás trabajando en un equipo, es importante comunicar cuándo haces 'rebase' de cambios importantes para que todos estén al tanto.",
+                "Si el 'rebase' se complica, puedes abortarlo en cualquier momento con el comando 'git rebase --abort'."
+            ]
         }
+        
+        
+        
+        
+        
+
+
     ],
 
     github: [
@@ -242,7 +359,7 @@ git add .
             "outputDescription": "Al ejecutar este comando, verás la salida en la terminal que muestra el resultado de la operación. Dependiendo de si se ejecuta correctamente o si hay errores, la salida variará. Esto mostrará información sobre la eliminación del repositorio remoto actual y la adición del nuevo repositorio remoto. Asegúrate de revisar la salida para verificar que la operación se realizó correctamente.",
             "output": ""
         }
-,        
+        ,
 
         {
             "id": "git-clone",
@@ -259,17 +376,48 @@ git add .
             "description": "El comando `git pull` es una operación fundamental en Git y en el trabajo en equipo, que se utiliza para mantener actualizado tu repositorio local con los cambios más recientes del repositorio remoto. Facilita este proceso al combinar dos pasos esenciales en uno.",
             "outputDescription": "Cuando ejecutas `git pull`, la terminal mostrará información detallada sobre los cambios que se han recuperado y combinado en tu repositorio local. Esta información incluye detalles sobre las ramas y commits que se han actualizado.",
             "output": "Auto-merging archivo.txt\nCONFLICT (contenido): Conflicto de fusión en archivo.txt\nActualizado 05b34e9..3a6b648"
-        }
-        ,
-        
+        },
         {
+            "id": "git-fetch",
+            "title": "Obtener los últimos cambios del repositorio remoto",
+            "command": "git fetch nombre_del_remoto",
+            "description": "Este comando se utiliza para obtener las últimas ramas y commits del repositorio remoto. Debes reemplazar 'nombre_del_remoto' con el nombre del repositorio remoto, que por lo general es 'origin'. Este comando no fusiona automáticamente los cambios en tu rama local, solo los descarga para que puedas verlos o fusionarlos manualmente.",
+            "secondCommand": "git fetch nombre_del_remoto nombre_de_la_rama",
+            "secondDescription": "Este comando obtiene los últimos commits de una rama específica del repositorio remoto. Debes reemplazar 'nombre_del_remoto' con el nombre del repositorio remoto y 'nombre_de_la_rama' con el nombre de la rama que deseas actualizar.",
+            "output": "Output en terminal: remote: Enumerating objects: 5, done.",
+            "outputDescription": "Cuando ejecutas el comando 'git fetch', se muestra un mensaje indicando que Git está descargando los objetos (commits) del repositorio remoto. El número de objetos puede variar.",
+            "tips": [
+                "Es una buena práctica ejecutar 'git fetch' regularmente para mantenerse al día con los cambios que otros puedan estar haciendo en el repositorio remoto.",
+                "Después de ejecutar 'git fetch', puedes usar 'git merge' para fusionar los cambios en tu rama local o 'git diff' para ver las diferencias entre tu rama local y la rama remota."
+            ]
+        },{
             "id": "git-push",
-            "title": "Subir tus cambios al repositorio remoto",
-            "command": "git push",
-            "description": "Con `git push`, puedes subir los commits que has realizado en tu repositorio local al repositorio remoto. Este comando es esencial para compartir tus cambios con otros colaboradores.",
-            "outputDescription": "La salida de este comando en la terminal te mostrará el proceso de subida de tus cambios al repositorio remoto.",
-            "output": "Counting objects: 3, done. Writing objects: 100% (3/3), 258 bytes | 258.00 KiB/s, done. Total 3 (delta 0), reused 0 (delta 0) To github.com:usuario/nombre-del-repositorio.git 05b34e9..3a6b648  master -> master"
+            "title": "Subir los cambios a una rama remota",
+            "command": "git push nombre_del_remoto nombre_de_la_rama",
+            "description": "Este comando se utiliza para subir los commits de tu rama local al repositorio remoto. Debes reemplazar 'nombre_del_remoto' con el nombre del repositorio remoto, que por lo general es 'origin', y 'nombre_de_la_rama' con el nombre de la rama que deseas actualizar en el repositorio remoto.",
+            "secondCommand": "git push nombre_del_remoto nombre_de_la_rama:nombre_de_la_rama_remota",
+            "secondDescription": "Este comando sube los commits de tu rama local a una rama específica en el repositorio remoto. Debes reemplazar 'nombre_del_remoto' con el nombre del repositorio remoto, 'nombre_de_la_rama' con el nombre de tu rama local, y 'nombre_de_la_rama_remota' con el nombre de la rama que deseas actualizar en el repositorio remoto.",
+            "output": "Output en terminal: To https://github.com/feralarcon1995/guia-git.git",
+            "outputDescription": "Cuando ejecutas el comando 'git push', se muestra un mensaje indicando que Git está subiendo los commits al repositorio remoto. Si la subida es exitosa, verás un resumen de los cambios.",
+            "tips": [
+                "Antes de hacer 'push' de tus cambios, es una buena práctica hacer 'pull' o 'fetch' para obtener los últimos cambios del repositorio remoto y asegurarte de que tu rama local está actualizada.",
+                "Si estás trabajando en un equipo, es importante comunicar cuándo haces 'push' de cambios importantes para que todos estén al tanto."
+            ]
+        },
+        {
+            "id": "git-push-delete",
+            "title": "Eliminar una rama remota",
+            "command": "git push nombre_del_remoto --delete nombre_de_la_rama",
+            "description": "Este comando se utiliza para eliminar una rama del repositorio remoto. Debes reemplazar 'nombre_del_remoto' con el nombre del repositorio remoto, que por lo general es 'origin', y 'nombre_de_la_rama' con el nombre de la rama que deseas eliminar en el repositorio remoto.",
+            "output": "Output en terminal: To https://github.com/feralarcon1995/guia-git.git",
+            "outputDescription": "Cuando ejecutas el comando 'git push', se muestra un mensaje indicando que Git está eliminando la rama del repositorio remoto. Si la eliminación es exitosa, verás un resumen de los cambios.",
+            "tips": [
+                "Antes de eliminar una rama remota, es una buena práctica asegurarte de que has fusionado todos los cambios que deseas conservar en otra rama.",
+                "Si estás trabajando en un equipo, es importante comunicar cuándo eliminas una rama remota para que todos estén al tanto."
+            ]
         }
+        
+        
 
     ]
 };

@@ -8,6 +8,11 @@ export default function Navbar({ allCommandData }) {
     const router = useRouter();
 
     const [isOpen, setIsOpen] = useState(false);
+    const [selectedResult, setSelectedResult] = useState(null);
+    const handleSearchSelect = (result) => {
+        // Aquí puedes redirigir a la página del comando seleccionado o realizar cualquier acción necesaria
+        router.push(`/commands/${result.category}/${result.id}`);
+    };
 
     const handleMenu = () => {
         setIsOpen(!isOpen);
@@ -46,6 +51,7 @@ export default function Navbar({ allCommandData }) {
                         />
                         Guía GIT
                     </Link>
+
                     {Object.keys(allCommandData).map((category) => {
                         const categoryInfo = allCommandData[category];
                         return (
