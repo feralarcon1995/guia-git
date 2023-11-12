@@ -218,4 +218,11 @@ border:none;
     display:flex;
     flex-direction:column;
   }
+
+  .pattern{
+    opacity: 0.2;
+  }
+  .content{
+    background: linear-gradient(rgba(0, 0, 0, 0.253) 50%, rgba(0, 0, 0, 0.253)100%);
+  }
 }

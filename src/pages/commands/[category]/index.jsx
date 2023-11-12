@@ -38,20 +38,20 @@ export default function Category({ commands, categoryInfo, allCommandData }) {
             <main className=" dash">
                 <Navbar allCommandData={allCommandData} />
 
-                <section className="content p-16 bg-hero mt-10 flex flex-col gap-5 min-h-screen max-h-full justify-between ">
+                <section className="content p-2 md:p-16 bg-hero mt-10 flex flex-col gap-5 min-h-screen max-h-full justify-between ">
                     <article className="flex justify-between items-center">
                         <div>
                             <h1 className="text-4xl md:text-6xl uppercase font-bold py-5 ">{categoryInfo.title}</h1>
                             <p className="text-2xl">{categoryInfo.description}</p>
 
                         </div>
-                        <Image src="/git.png" width={200} height={200} alt="git logo" />
+                        <Image src="/git.png" width={200} height={200} alt="git logo" className='hidden md:block'/>
                     </article>
 
                     <Image
                         src="/pattern.png"
                         alt="patrones circulares de color naranja"
-                        className="absolute opacity-50 bottom-[10px] left-0"
+                        className="absolute opacity-50 bottom-[10px] left-0 pattern"
                         width={200}
                         height={200}
                         priority />
