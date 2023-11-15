@@ -9,17 +9,17 @@ export default function Hero() {
         alt="Circulo naranja difuminado"
         className="absolute bounce opacity-50 top-[30%] left-[-50%] md:left-[-10%]"
         width={300}
-        height={300} 
-        priority="true"/>
-      <h1 className=" title uppercase font-bold text-gradient  ">Guía de Git</h1>
+        height={300}
+        priority="true" />
+      <h1 className="text-[6rem] leading-none md:text-[8rem] lg:text-[10rem] xl:text-[14rem] uppercase font-bold text-gradient tracking-[-1rem] lg:tracking-[-1.3rem] xl:tracking-[-2rem]">Guía de Git</h1>
       <p className="text-2xl md:text-2xl">Veremos los comandos básicos, desde su instalación y modos de uso.</p>
       <Image
         src="/shape.png"
         alt="Circulo naranja difuminado"
         className="absolute bounce opacity-50 bottom-[10%] right-[20%] "
         width={200}
-        height={200} 
-        priority="true"/>
+        height={200}
+        priority="true" />
       <Image
         src="/pattern.png"
         alt="patrones circulares de color naranja"

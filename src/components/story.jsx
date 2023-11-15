@@ -3,8 +3,6 @@ import { CodeBlock, railscast } from "react-code-blocks";
 export default function Story() {
     const code =
         ` 
-    //Iniciamos git en el repositorio local
-
     bash ➔ ~/Desktop/guia-git
 
     git init
@@ -14,8 +12,6 @@ export default function Story() {
 
     const githubCode =
         ` 
-    //Vas a conectar tu proyecto local al repositorio online de github
-    
     bash ➔ ~/Desktop/guia-git
 
     git add remote https://github.com/miusuario/miproyecto.git
@@ -42,6 +38,7 @@ export default function Story() {
                 <div className="flex flex-col gap-3 w-full md:w-6/12">
                     <h3 className="text-3xl font-bold">Veremos lo basico</h3>
                     <p>Usando los comandos mas comunes</p>
+                    <p className="text-base text-lime-300">#Iniciamos git en el repositorio local</p>
                     <CodeBlock
                         language="bash"
                         text={code}
@@ -55,6 +52,7 @@ export default function Story() {
                 <div className="flex flex-col gap-3 w-full md:w-6/12 ">
                     <h3 className="text-3xl font-bold">Trabajaremos con github</h3>
                     <p>Vas a crear un repositorio en github y subir tu proyecto</p>
+                    <p className="text-base text-lime-300">#Vas a conectar tu proyecto local al repositorio online de github</p>
                     <CodeBlock
                         language="bash"
                         text={githubCode}

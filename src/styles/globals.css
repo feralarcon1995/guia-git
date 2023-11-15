@@ -35,10 +35,6 @@ h1, h2, h3, h4 {
   font-family: 'Bricolage Grotesque', sans-serif;
 }
 
-.title {
-  font-size: 20rem;
-  letter-spacing: -40px;
-}
 
 p {
   font-family: 'Noto Sans KR', sans-serif;
@@ -193,11 +189,8 @@ p {
 border:none;
 }
 
+
 @media screen and (max-width:800px) {
-  .title {
-    font-size: 10rem;
-    letter-spacing: -10px;
-  }
 
   .dash{
     display: grid;
@@ -209,11 +202,7 @@ border:none;
 }
 
 @media screen and (max-width:600px) {
-  .title {
-    font-size: 6rem;
-    letter-spacing: -5px;
-  }
-
+ 
   .dash{
     display:flex;
     flex-direction:column;

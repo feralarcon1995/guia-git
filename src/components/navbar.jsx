@@ -23,17 +23,18 @@ export default function Navbar({ allCommandData }) {
                 </svg>
             </button>
 
-            <aside id="drawer-navigation" className={`fixed top-0 left-0 z-40 w-64 h-screen  transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} sm:translate-x-0`} aria-label="Sidebar">
-                <div className="h-full px-3 py-4 overflow-y-auto z-30 bg-neutral-950 flex flex-col gap-2" onChange={handleMenu}>
+            <aside id="drawer-navigation" className={`absolute bg-neutral-950  md:fixed top-0 left-0 z-40 w-full md:w-64 h-screen  transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} sm:translate-x-0`} aria-label="Sidebar">
+                <div className="h-full px-3 py-4  md:overflow-y-auto z-30 bg-neutral-950 flex flex-col gap-2" onChange={handleMenu}>
                     <button
                         type="button"
                         data-drawer-hide="drawer-navigation"
                         aria-controls="drawer-navigation"
                         onClick={handleMenu}
-                        className="text-white hover:text-amber-700 rounded-lg text-xl bold  flex gap-2  sm:hidden items-center">
-                        <svg className="w-6 h-6 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z" />
+                        className="text-white hover:text-amber-700 rounded-lg text-xl bold  flex gap-2  sm:hidden items-center self-auto p-2">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                         </svg>
+
                         <span className="sr-only">Close menu</span>
                     </button>
                     <Link href="/" className="flex font-medium text-xl items-center gap-4 hover:text-amber-600 z-40">
